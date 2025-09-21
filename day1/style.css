@@ -1,0 +1,47 @@
+body{
+    border: 2px solid gray;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    font-size: x-large;
+}
+.intro h1{
+   background-color: aqua;
+}
+
+.history h1{
+   background-color: aqua;
+}
+
+.history>p{
+   text-align: left;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.history h2{
+   background-color: rgb(107, 114, 163);
+}
+.features h1{
+   background-color: aqua;
+}
+
+.Usecases h1{
+   background-color: aqua;
+}
+.adv h1{
+   background-color: aqua;
+}
+.limitations h1{
+   background-color: aqua;
+}
+.frame h1{
+     background-color: aqua;
+  
+}
+.conclusion h1{
+     background-color: aqua;
+
+}
+.syntax h1{
+     background-color: aqua;
+}
