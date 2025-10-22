@@ -81,12 +81,28 @@ console.log(place.replaceAll("a","A"))
 // // console.log(num.toString())
 // console.log(typeof(num.toString()))
 
-//19 padStart() --start side added and legth provide
-num="1"
-console.log(num.padStart(6,"3"))
+// //19 padStart() --start side added and legth provide
+// num="1"
+// console.log(num.padStart(6,"3"))
 
-//20 padEnd()--ending side added
-console.log(num.padEnd(6,"3"))
+// //20 padEnd()--ending side added
+// console.log(num.padEnd(6,"3"))
+
+//21 startswith()---start letter should be check
+n="tharunani"
+console.log(n.startsWith("tha"))
+
+//22 endswith()---end letter should be check
+n="tharunani"
+console.log(n.endsWith("i"))
+//23 repeat()--repeating the values 
+console.log(n.repeat(5))
+
+//24 split--
+var num="1,2,3,4,5"
+console.log(num.split(","))
+var num="1 2 3 4 5"
+console.log(num.split())
 
 
 

@@ -23,18 +23,18 @@
 
 
 // // 5) Create another object extraDetails and merge it into student using Object.assign().
-// var obj={name:"nani",age:20,course:"MCA",marks:80}
-// extra={city:"bangolore",rollno:"15"}
-// Object.assign(obj,extra)
-// console.log(obj)
+var obj={name:"nani",age:20,course:"MCA",marks:80}
+extra={city:"bangolore",rollno:"15"}
+Object.assign(obj,extra)
+console.log(obj)
 
 
 
 // // 6) Use Object.hasOwnProperty() to check if the student object has the property course and address.
-// var obj={name:"nani",age:20,course:"MCA",marks:80}
-// console.log(obj.hasOwnProperty("course"))
-// var obj={name:"nani",age:20,course:"MCA",marks:80}
-// console.log(obj.hasOwnProperty("address"))
+var obj={name:"nani",age:20,course:"MCA",marks:80}
+console.log(obj.hasOwnProperty("course"))
+var obj={name:"nani",age:20,course:"MCA",marks:80}
+console.log(obj.hasOwnProperty("address"))
 
 
 // // 7) Make a copy of the student object and apply Object.freeze() on it.

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Interactive Styled Cards</title>
+  <style>
+    :root{
+      --bg: #0f1724;
+      --text: #e6eef8;
+      --accent: #7dd3fc;
+      --card-bg: rgba(54, 17, 17, 0.04);
+      font-family: Inter, system-ui, -apple-system;
+    }
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--bg);
+      color:var(--text);
+      padding:40px;
+    }
+    .app{width:100%;max-width:1000px;display:flex;flex-direction:column;gap:20px}
+    header{display:flex;justify-content:space-between;align-items:center}
+    .btn{background:#1e293b;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .card{
+      background:var(--card-bg);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:14px;
+      padding:16px;
+      transition:.25s;
+      cursor:pointer;
+      position:relative;
+    }
+    .card:hover{transform:translateY(-5px);background:rgba(255,255,255,0.06)}
+    .emoji{font-size:2rem}
+    .like{
+      position:absolute;right:12px;top:12px;font-size:1.2rem;cursor:pointer;transition:.3s
+    }
+    .liked{color:red;transform:scale(1.2)}
+    .pill{font-size:0.8rem;background:rgba(255,255,255,0.1);padding:5px 10px;border-radius:8px;width:fit-content;margin-top:10px}
+    /* popup modal */
+    .popup{
+      position:fixed;inset:0;background:rgba(0,0,0,0.6);
+      display:flex;align-items:center;justify-content:center;
+      visibility:hidden;opacity:0;transition:.3s;
+    }
+    .popup.show{visibility:visible;opacity:1}
+    .popup-content{
+      background:#1e293b;color:white;padding:20px;border-radius:10px;max-width:300px;text-align:center;position:relative;
+      animation:pop .3s ease;
+    }
+    @keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+    .close-btn{position:absolute;top:8px;right:10px;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h2>🎨 Interactive Styled Cards</h2>
+      <div>
+        <button class="btn" id="shuffle">Shuffle</button>
+      </div>
+    </header>
+
+    <main class="grid" id="grid"></main>
+  </div>
+
+  <!-- Popup Modal -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="close-btn" id="closePopup">✖</span>
+      <h3 id="popupTitle"></h3>
+      <p id="popupText"></p>
+    </div>
+  </div>
+
+  <script>
+    const items = [
+      {emoji:'🌿N', title:'Nature Notes', text:'Take a deep breath and look outside.'},
+      {emoji:'⚡N', title:'Quick Tips', text:'Use console.log() smartly while debugging.'},
+      {emoji:'🎨A', title:'Art Prompt', text:'Draw something inspired by today’s weather.'},
+      {emoji:'🚀A', title:'Launch Plan', text:'Set one small goal to finish today.'},
+      {emoji:'💡N', title:'Idea Box', text:'Write down one creative idea each morning.'},
+      {emoji:'📚I', title:'Learn More', text:'Read a 2-page summary of any book.'}
+    ];
+
+    const grid = document.getElementById('grid');
+    const popup = document.getElementById('popup');
+    const popupTitle = document.getElementById('popupTitle');
+    const popupText = document.getElementById('popupText');
+    const closePopup = document.getElementById('closePopup');
+
+    function renderCards(){
+      grid.innerHTML = '';
+      const show = [...items].sort(()=>Math.random()-0.5).slice(0,4);
+      show.forEach(it=>{
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="like">🤍</div>
+          <div class="emoji">${it.emoji}</div>
+          <h3>${it.title}</h3>
+          <p>${it.text}</p>
+          <div class="pill">Click me 👆</div>
+        `;
+        // like button action
+        const like = card.querySelector('.like');
+        like.addEventListener('click', e=>{
+          e.stopPropagation();
+          like.classList.toggle('liked');
+          like.textContent = like.classList.contains('liked') ? '❤' : '🤍';
+        });
+
+        // card click action → open popup
+        card.addEventListener('click', ()=>{
+          popupTitle.textContent = it.title;
+          popupText.textContent = it.text + ' (More content shown here when clicked!)';
+          popup.classList.add('show');
+        });
+
+        grid.appendChild(card);
+      });
+    }
+
+    // close popup
+    closePopup.addEventListener('click', ()=> popup.classList.remove('show'));
+    popup.addEventListener('click', e=>{ if(e.target===popup) popup.classList.remove('show'); });
+
+    // shuffle
+    document.getElementById('shuffle').addEventListener('click', renderCards);
+
+    renderCards();
+  </script>
+</body>
+</html>

@@ -9,6 +9,7 @@ console.log("last char at :",str.at(-1));        // Output: t
 
 var str1="hello"
 var str2="world"
+
 console.log("combined string:",str1.concat(str2))
 console.log(str1.includes("lo"))
 console.log("first index of l :",str1.indexOf("l"))
