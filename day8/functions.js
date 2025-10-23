@@ -11,7 +11,7 @@ console.log(a+b)
 }
 nani(10,20)
 
-3.return functinons
+// 3.return functinons
 function nani(a,b){
 console.log(a+b)
  return a*b
