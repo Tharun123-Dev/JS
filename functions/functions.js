@@ -48,12 +48,12 @@
 // console.log(area(10,20))
 
 
-
+//arrow functions---without fun name and without keyword`
 //1 
 var a =
 
 () => {
-    console.log("nani");
+    console.log("nani"+"tharun");
 };
 
 a(); 
@@ -61,7 +61,7 @@ a();
 
 //parameterize
 var a = (b,c) => {
-    console.log(b+c);
+    console.log(b+c*b);
 };
 
 a(1,2); 
