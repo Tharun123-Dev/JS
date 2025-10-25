@@ -1,5 +1,5 @@
-// // functions
-// // 1.named functions
+//  functions
+//  1.named functions
 // function nani(){
 //     console.log("anything")
 // }
@@ -48,7 +48,7 @@
 // console.log(area(10,20))
 
 
-//arrow functions---without fun name and without keyword`
+// //arrow functions---without fun name and without keyword`
 //1 
 var a =
 
@@ -59,29 +59,42 @@ var a =
 a(); 
 
 
-//parameterize
-var a = (b,c) => {
-    console.log(b+c*b);
-};
+// //parameterize
+// var a = (b,c) => {
+//     console.log(b+c*b);
+// };
 
-a(1,2); 
-
-
-//return
-var a = () => {
-    return "nani"
-};
-
-console.log(a());
+// a(1,2); 
 
 
-//return & parameterized
-var a = (b,c) => {
+// //return
+// var a = () => {
+//     return "nani"
+// };
+
+// console.log(a());
+
+
+// //return & parameterized
+// var a = (b,c) => {
     
-    console.log(b*c)
-    return b+c
-};
+//     console.log(b*c)
+//     return b+c
+// };
 
-console.log(a(1,2)); 
+// console.log(a(1,2)); 
+
+//Anonymous function
+//normal anonymous
+var place=function (){
+    console.log("nani")
+}
+place()
+//parameterized
+//return
+//anonymous arrow function
+//parameterized arrow anonymous function
+
+
 
 
