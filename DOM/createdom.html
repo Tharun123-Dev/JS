@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="first">
+         <p>this is a first para</p>
+          <p>this is a second para</p>
+    </div>
+    <div id="second">
+         <p>this is a first para2</p>
+         <p>this is a second para2</p>
+    </div>
+</body>
+  <script>
+     var n=document.createElement('p')//creating
+     n.innerText= "this is third para"     //iiner html is content
+     var parent=document.getElementById("second")
+     parent.appendChild(n)
+
+     console.log(parent.innerText)//property//iiner text
+     console.log(parent.innerHTML)//complete childrens plus tags also
+                                            
+  </script>
+</html>
