@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="first">
+         <p id="firs">this is a first para</p>
+          <p>this is a second para</p>
+    </div>
+    <div id="second">
+         <p>this is a first para2</p>
+         <p id="last">this is a second para2</p>
+    </div>
+</body>
+  <script>
+     var n=document.createElement('p')//creating
+     n.innerText= "this is special  para in div2"     //iiner html is content
+     var parent=document.getElementById("first")
+     var last=document.getElementById("firs")
+     parent.removeChild(last)
+
+
+
+                                            
+  </script>
+</html>
