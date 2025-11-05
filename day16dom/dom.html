@@ -1,15 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM</title>
 </head>
 <body>
-    <p id="one">This is nani</p>
+    <div id="one">
+        <p>This is nani</p>
+        <p>This is nani</p>
+    </div>
+
+    <h3 class="two">this is nani</h3>
+    <h3 class="two">this is nani</h3>
+    <h3 class="two">this is nani</h3>
+    <h3 class="two">this is nani</h3>
+
+    <div>
+        <h3 name="t">this is nani</h3>
+        <h3 name="t">this is nani</h3>
+        <h3 name="t">this is nani</h3>
+        <button onclick="change()">click here for backgroundColor</button>
+    </div>
+
+    <h2>this is nani</h2>
+    <h2>this is nani</h2>
+    <h2>this is nani</h2>
+    <h2>this is nani</h2>
+    <h2>this is nani</h2>
+
+    <div id="n">
+        <h1>This is nani</h1>
+    </div>
+
+    <div id="m">
+        <h1>This is nani</h1>
+    </div>
+
     <script>
-       a= document.getElementById('one');
-       a.style.color="red"
+        const a = document.getElementById('one'); // by id
+        a.style.color = "red";
+        a.style.backgroundColor = 'blue';
+
+        const b = document.getElementsByClassName('two'); // by class name
+        for (let i = 0; i < b.length; i++) {
+            b[i].style.backgroundColor = "green";
+            b[i].style.color = "black";
+            b[i].style.fontSize = "20px";
+        }
+
+        const c = document.getElementsByName('t'); // by name
+        function change() {
+            for (let i = 0; i < c.length; i++) {
+                c[i].style.backgroundColor = "aqua";
+            }
+        }
+
+        const d = document.getElementsByTagName('h2'); // by tag name
+        for (let i = 0; i < d.length; i++) {
+            d[i].style.backgroundColor = 'pink';
+        }
+
+        // modify #n using innerHTML to render the <u> tag
+        const n = document.getElementById('n');
+        n.innerHTML = "<u>This is tharun</u><br>";
+
+        // modify #m
+        const m = document.getElementById('m');
+        m.innerHTML = "<u>This is tharun</u>";
+        m.style.backgroundColor = "orange";
     </script>
 </body>
 </html>
