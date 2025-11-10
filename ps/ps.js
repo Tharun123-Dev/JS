@@ -161,16 +161,68 @@
 // }
 // console.log(removefalsy([0,"",5,false,"hello",null,42]))
 
-//process 2
-function removeFalsy(arr) {
-  let result = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i]) {          // only truthy values pass this test
-      result.push(arr[i]);
-    }
-  }
-  return result;
-}
+// //process 2
+// function removeFalsy(arr) {
+//   let result = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i]) {          // only truthy values pass this test
+//       result.push(arr[i]);
+//     }
+//   }
+//   return result;
+// }
 
-console.log(removeFalsy([0, "", 5, false, "hello", null, 42]));
-// Output: [5, "hello", 42]
+// console.log(removeFalsy([0, "", 5, false, "hello", null, 42]));
+
+// //10 Q10. Swap two variables without a temp (using destructuring)
+// let a=1;
+// let b=2;
+// [a,b]=[b,a];
+// console.log(a,b);
+
+// //swaping
+// a=10
+// b=5
+// a=a+b
+// b=a-b
+// a=a-b
+
+// console.log(a,b)
+
+
+
+//11 sum of smallest numbers possitive
+
+// arr = [1, 3, 2, -1, -4, -2, 9];
+// let small = Infinity;
+
+// for (ch of arr) {
+//   if (ch > 0 && ch < small) {
+//     small = ch;
+//   }
+// }
+
+// console.log("Smallest positive:", small);
+
+
+// 2
+let arr = [1, 3, 2, -1, -4, -2, 9];
+
+let first = Infinity,
+ second = Infinity;
+
+for (let ch of arr) {
+  if (ch < first) {
+    second = first;
+    first = ch;
+
+  } else if (ch < second && ch !== first) {
+    second = ch;
+  }
+}
+console.log("Two smallest numbers:", first, second);
+
+
+
+
+
