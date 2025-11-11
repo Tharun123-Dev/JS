@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p class="nani">nani nani</p> -->
+
+    <!-- <p class="nani" id="star">nani nani</p>  -->
+    <!-- <button onclick="fun()"> click here</button>  -->
+    <!-- <script> -->
+    <!-- //     function fun(){ -->
+    <!-- //    var el= document.getElementsByClassName("nani") -->
+    <!-- //     var sky= el.setAttribute("id","star") -->
+    <!-- //      document.getElementById("star").style.color="pink" -->
+    <!-- //} -->
+    <!-- var ele1=document.querySelector(".nani") -->
+    <!-- var ele2=ele1.setAttribute(id,nani) -->
+    <!-- ele2.querySelector("#star").style.color="orange" -->
+    <!-- </script>
+      -->
+    <p class="nani" id="star">nani nani</p> 
+<button onclick="fun()">click here</button> 
+
+<script>
+function fun() {
+    var ele1 = document.querySelector(".nani");
+    // set a new id if needed
+    ele1.setAttribute("id", "star");
+    // change color
+    document.getElementById("star").style.color = "orange";
+}
+</script>
+
+</body>
+</html>

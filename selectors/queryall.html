@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <p class="p">one is one</p>
+   <p class="p">two is two</p>
+   <p class="p">three</p> 
+   <button onclick="nani()">click here</button>
+
+<script>
+function nani(){
+    var el2=document.querySelectorAll(".p")
+    el2.forEach((elements) =>{
+        elements.style.color= "pink"
+    })
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="nani" id="star">nani nani</p> 
+<button onclick="fun()">Click here</button> 
+
+<script>
+function fun() {
+    // select element by class
+    var ele = document.querySelector(".nani");
+
+    // get current id
+    var currentId = ele.getAttribute("id");
+    console.log("Current id:", currentId);
+
+    // change id using setAttribute
+    ele.setAttribute("id", "sun");
+
+    // verify new id
+    var newId = ele.getAttribute("id");
+    console.log("New id:", newId);
+
+    // use new id to style the element
+    document.getElementById(newId).style.color = "orange";
+}
+</script>
+
+</body>
+</html>
