@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<ul id="taskList">
+  <li>Task A</li>
+  <li>Task B</li>
+</ul>
+
+<input id="newTask" placeholder="New task">
+<button id="addTaskBtn" disabled>Add Task</button>
+
+<script>
+// Get elements
+const taskList = document.getElementById("taskList");
+const newTask = document.getElementById("newTask");
+const addBtn = document.getElementById("addTaskBtn");
+
+// Function to attach handlers to any <li>
+function setHandlers(li) {
+  li.onmouseover = () => li.style.textDecoration = "underline";
+  li.onmouseout = () => li.style.textDecoration = "";
+  li.onclick = () => {
+    li.style.color = "gray";
+    li.style.textDecoration = "line-through";
+    li.classList.add("done");
+    li.onclick = null; // remove click handler
+  };
+}
+
+// Add handlers to initial list items
+document.querySelectorAll("#taskList li").forEach(setHandlers);
+
+// Enable button when input ≥ 3 chars
+newTask.onchange = () => {
+  addBtn.disabled = newTask.value.length < 3;
+};
+
+// Add new task
+addBtn.onclick = () => {
+  if (newTask.value === "") {
+    alert("Enter a task");
+    return;
+  }
+  const li = document.createElement("li");
+  li.textContent = newTask.value;
+  setHandlers(li);
+  taskList.appendChild(li);
+  newTask.value = "";
+  addBtn.disabled = true;
+};
+</script>
+
+</body>
+</html>
+

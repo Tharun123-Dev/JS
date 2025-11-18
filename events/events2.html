@@ -1,0 +1,160 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Demo Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      color: #222;
+      text-align: center;
+      margin: 0;
+      padding: 50px;
+    }
+
+    h2 {
+      color: #fff;
+      background-color: #0077ff;
+      padding: 15px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    button {
+      background-color: #fff;
+      border: 2px solid #0077ff;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0077ff;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border: 2px solid #0077ff;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 200px;
+      transition: 0.3s;
+    }
+
+    input[type="text"]:focus {
+      background-color: #e0f7fa;
+      outline: none;
+      box-shadow: 0 0 10px #0077ff;
+    }
+
+    select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid #0077ff;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    select:hover {
+      background-color: #f0f8ff;
+      box-shadow: 0 0 10px #0077ff;
+    }
+
+    form {
+      margin: 20px auto;
+    }
+
+    /* subtle animation on page load */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    body {
+      animation: fadeIn 1s ease-in-out;
+    }
+  </style>
+</head>
+<body onload="load()">
+
+  <h2 id="nani">this is onclick</h2>  <br><br>
+
+
+  <button onclick="nani()">Click here</button><br>
+
+
+  <button onmouseover="mouseover()">Hovered here</button><br>
+
+
+  <button onmouseout="mouseout()">Mouseout</button><br>
+
+  <form action="">
+    <input type="text" onfocus="foc()" placeholder="Focus here">
+  </form>
+
+  <form action="" onsubmit="sub()">
+    <input type="text" placeholder="Type to submit">
+    <button>Submit</button>
+  </form>
+
+  <select name="nani" id="check">
+    <option value="hyd">hyd</option>
+    <option value="bglr">bglr</option>
+    <option value="wgl">wgl</option>
+  </select>
+
+  <script>
+
+    function nani(){
+      n=document.querySelector("#nani")
+      n.innerHTML="this is onclick button"
+
+    }
+
+
+    function sub(){
+      var n = document.querySelector("#nani");
+      n.innerHTML = "Today is Wed";
+      alert("submit successfully.");
+    }
+
+    function mouseover(){
+      alert("this is hovered");
+    }
+
+    function mouseout(){
+      alert("you hovered off mouseout");
+    }
+
+    function foc(){
+      var inp = document.querySelector("input");
+      inp.style.backgroundColor = "lightpink";
+    }
+
+    function load(){
+      alert("loaded successfully!");
+    }
+
+var c = document.querySelector("#check");
+c.onchange = function() {
+  console.log("this is selected: " + c.value);
+}
+
+  </script>
+</body>
+</html>
+
+
+
+

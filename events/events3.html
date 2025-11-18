@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Paragraph</title>
+</head>
+<style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+    }
+
+    .nani{
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    box-shadow: 2px 2px 2px red;
+    margin: auto;
+    padding: 2px;
+    }
+</style>
+<body>
+
+    <button id="Btn" onclick="toggleParagraph()">Hide</button>
+
+    <p id="para">This is a hidden paragraph that can be toggled.</p>
+
+    <!-- <div class="box">
+        <button onmouseover="mouseover() " onmouseout="onmouseout()">click</button>
+        
+
+    </div> -->
+
+<div class="box"></div><br>
+  <div class="box"></div><br>
+  <div class="box"></div><br>
+  <div class="box"></div><br>
+
+
+   <div class="nani">
+  
+    <input type="text" ><br><br>
+    <input type="text" ><br><br>
+     <input type="text" ><br>
+
+     <span id="result"></span>
+
+
+     </div>
+  
+    
+
+    <script>
+        function toggleParagraph() {
+        
+            var para = document.getElementById("para");
+            var btn = document.getElementById("Btn");
+
+            
+            if (para.style.display === "none") {
+                para.style.display = "block"; 
+                btn.textContent = "Hide"; 
+            } else {
+                para.style.display = "none";
+                btn.textContent = "Show again"; 
+            }
+        }
+
+
+        //      function mouseover(){
+        //          var b=document.getElementsByClassName("box")[0];
+        //          b.style.transform = "scale(1.2)";
+
+        
+        //  }
+        //      function mouseout(){
+        //          var b=document.getElementsByClassName("box")[0];
+        //          b.style.transform = "scale(-1.2)";
+
+        
+        //  }
+
+
+       
+    
+
+    //        box.onmouseover = function() {
+    //     this.style.transform = "scale(1.2)";
+    //   };
+
+
+        let boxes = document.getElementsByClassName("box");
+     for (let i = 0; i < boxes.length; i++) {
+    //   let box = boxes[i];
+
+      
+      boxes[i].onmouseover = function() {
+        boxes[i].style.transform = "scale(1.2)";
+      };
+
+    
+      boxes[i].onmouseout = function() {
+        boxes[i].style.transform = "scale(1)";
+      };
+
+    
+      boxes[i].onclick = function() {
+        boxes[i].style.backgroundColor = "orange";
+      };
+    }
+    
+
+
+
+
+
+    //3
+
+   let foc = document.getElementsByTagName("input");
+   let result=document.getElementById("result")
+
+
+    for (let i = 0; i < foc.length; i++) {
+      foc[i].onfocus = function() {
+        foc[i].style.backgroundColor = "red";
+      };
+
+    foc[i].onchange=function(){
+        let val = foc[i].value.trim();
+     if (val.length < 3) {
+          result.textContent = " Enter at least 3 characters!";
+          result.style.color = "red";
+          foc[i].style.backgroundColor = "lightpink";
+        } else {
+          result.textContent = " Ok";
+          result.style.color = "green";
+          foc[i].style.backgroundColor = "lightgreen";
+
+          // disable further validation once valid
+          foc[i].onchange = null;
+          foc[i].onfocus = null;
+        }
+      };
+    }
+    //    function foc(){
+    //          var e=document.getElementsByTagName("input")[0]
+    //         input.style.backgroundColor="red"
+    //      }
+
+
+
+   
+    
+
+    </script>
+
+</body>
+</html>

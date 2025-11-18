@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<label>
+    <input type="radio" name="theme" value="Light">
+    Light
+</label>
+
+<label>
+    <input type="radio" name="theme" value="Dark">
+    Dark
+</label>
+
+<img id="nani" src="https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp" alt="" width="150">
+
+<div id="themeMsg"></div>
+<style>
+    .dark-mode {
+    background-color: black;
+    color: white;
+}
+
+
+
+.dark-mode #nani {
+  filter: brightness(1.5) contrast(1.2);
+
+}
+</style>
+</head>
+<body>
+    <script>
+    
+const radios = document.getElementsByName("theme");
+const msg = document.querySelector("#themeMsg");
+const img = document.querySelector("#nani");
+
+radios.forEach(r => {
+  r.onchange = () => {
+    msg.textContent = "Current theme: " + r.value;
+
+    if (r.value === "Dark") {
+      document.body.classList.add("dark-mode");
+    //   img.src = "";      
+    } else {
+      document.body.classList.remove("dark-mode");
+    //   img.src = "";      
+    }
+  };
+});
+
+
+
+
+</script>
+
+</body>
+</html>

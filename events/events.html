@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body  onload="load()">
+    <h2 id="nani">this is onclick</h2>
+    <button onclick="nani()" >click here</button><br><br>
+
+    <button onmouseover="mouseover()">hovered here</button><br><br><br>
+
+
+    <button onmouseout="mouseout()">mouseout</button><br><br><br>
+
+    <form action="">
+        <input type="text" onfocus="foc()">
+    </form><br><br><br>
+
+    <form action="" onsubmit="sub()">
+        <input type="text">
+        <button>submit</button>
+    </form><br><br><br>
+
+    <select name="" id="check">
+        <option value="">hyd</option>
+         <option value="">bglr</option>
+          <option value="">wgl</option>
+    </select>
+
+    
+
+
+    <script>
+        function sub(){
+         var n=  document.querySelector("#nani")
+         n.innerHTML="Today is wed"
+
+         }
+
+         function mouseover(){
+            alert("this is hovered ")
+         }
+
+         function mouseout(){
+            alert("you hovered of mouseout")
+         }
+
+         function foc(){
+            var inp=document.querySelector("input")
+            inp.style.backgroundColor="red"
+         }
+        
+
+         function sub(){
+            alert("submit successfully.")
+         }
+
+          function load(){
+            alert("loaded successfully!")
+          }
+
+          var c=document.querySelector("#check")
+          c.onchange=function(){
+            console.log("this is selected:" +c.value)
+          }
+         
+    </script>
+</body>
+</html>  

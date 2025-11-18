@@ -29,75 +29,75 @@
 #    print("not prime")
 
 
-#patterns
-#1 H
-row=5
-for i in range (0,row):
-    s=""
-    for j in range (0,row):
-        if j==0 or j==4:
-            s+="* "
-        elif i==(row//2):
-            s+="* "
-        else:
-            s+="  "
-    print(s)   
+# #patterns
+# #1 H
+# row=5
+# for i in range (0,row):
+#     s=""
+#     for j in range (0,row):
+#         if j==0 or j==4:
+#             s+="* "
+#         elif i==(row//2):
+#             s+="* "
+#         else:
+#             s+="  "
+#     print(s)   
 
 
-#1 A
-row=5
-for i in range (0,row):
-    s=""
-    for j in range (0,row):
-        if j==0 or j==4:
-            s+="* "
-        elif j==i:
-            s+="* "
-        else:
-            s+="  "
-    print(s)   
+# #1 A
+# row=5
+# for i in range (0,row):
+#     s=""
+#     for j in range (0,row):
+#         if j==0 or j==4:
+#             s+="* "
+#         elif j==i:
+#             s+="* "
+#         else:
+#             s+="  "
+#     print(s)   
 
-#1 Z
-row=5
-for i in range (0,row):
-    s=""
-    for j in range (0,row):
-        if i==0 or i==4:
-            s+="* "
-        elif i+j==(row-(1)):
-            s+="* "
-        else:
-            s+="  "
-    print(s)  
+# #1 Z
+# row=5
+# for i in range (0,row):
+#     s=""
+#     for j in range (0,row):
+#         if i==0 or i==4:
+#             s+="* "
+#         elif i+j==(row-(1)):
+#             s+="* "
+#         else:
+#             s+="  "
+#     print(s)  
 
-    #1 Z
-row=5
-for i in range (0,row):
-    s=""
-    for j in range (0,row):
-        if i==0 :
-            s+="* "
-        elif j==(row//2):
-            s+="* "
-        else:
-            s+="  "
-    print(s) 
+#     #1 Z
+# row=5
+# for i in range (0,row):
+#     s=""
+#     for j in range (0,row):
+#         if i==0 :
+#             s+="* "
+#         elif j==(row//2):
+#             s+="* "
+#         else:
+#             s+="  "
+#     print(s) 
 
 
-#6 P
-row=5
-for i in range (0,row):
-    s=""
-    for j in range (0,row):
-        if i==0 or i==2:
-            s+="* "
-        elif j==0 :
-            s+="* "
-        elif j==4 and i<(row//2) :
-            s+="* "
-        else:
-            s+="  "
-    print(s) 
+# #6 P
+# row=5
+# for i in range (0,row):
+#     s=""
+#     for j in range (0,row):
+#         if i==0 or i==2:
+#             s+="* "
+#         elif j==0 :
+#             s+="* "
+#         elif j==4 and i<(row//2) :
+#             s+="* "
+#         else:
+#             s+="  "
+#     print(s) 
 
 # #7 traingle
 # row=5
@@ -139,3 +139,18 @@ for i in range (0,row):
 #         else:
 #             s+="  "
 #     print(s) 
+
+nums=[2,45,6,4,89,0,35,6]
+
+n= "".join(str(i) for i in nums)
+lar=n[3]
+for i in n:
+  
+     if i>lar:
+        lar=i
+        
+print(lar)
+
+        
+    
+

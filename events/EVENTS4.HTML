@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <style>
+        body{
+            font-family: Arial;
+            padding: 20px;
+        }
+        #msg{
+            margin-top: 15px;
+            padding: 10px;
+            font-weight: bold;
+        }
+        .error{
+            color: white;
+            background: red;
+        }
+        .success{
+            color: white;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<form id="myForm">
+    <label>Name:</label><br>
+    <input type="text" id="name"><br><br>
+
+    <label>Email:</label><br>
+    <input type="text" id="email"><br><br>
+
+    <label>Age:</label><br>
+    <input type="text" id="age"><br><br>
+
+    <button type="submit" id="submitBtn">Submit</button>
+</form>
+
+<div id="msg"></div>
+
+
+<script>
+// get form and inputs
+let form = document.querySelector("#myForm");
+let inputs = document.querySelectorAll("#myForm input");
+let msg = document.querySelector("#msg");
+let submitBtn = document.querySelector("#submitBtn");
+
+// onsubmit event
+form.onsubmit = function(event){
+    event.preventDefault(); 
+
+    let name = inputs[0].value.trim();
+    let email = inputs[1].value.trim();
+    let age = inputs[2].value.trim();
+
+    // Validation
+    if(name.length < 2){
+        msg.className = "error";
+        msg.innerHTML = "Name must be at least 2 characters";
+        return;
+    }
+
+    if(!email.includes("@")){
+        msg.className = "error";
+        msg.innerHTML = " Email must contain '@'";
+        return;
+    }
+
+    if(isNaN(age) || Number(age) <= 0){
+        msg.className = "error";
+        msg.innerHTML = " Age must be a number greater than 0";
+        return;
+    }
+
+    // If all pass
+    msg.className = "success";
+    msg.innerHTML = ` Welcome, ${name}!`;
+
+    // Clear the form
+    inputs.forEach(inp => inp.value = "");
+
+    // Disable submit button
+    submitBtn.disabled = true;
+};
+</script>
+
+</body>
+</html>
