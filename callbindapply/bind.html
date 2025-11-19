@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this And Call</title>
+</head>
+<body>
+    <script>
+        const person={
+            firstname:"tharun",
+            lastname:"nani",
+            fun_name: function(){
+                console.log(`the first name is ${this.firstname} and the last name is ${this.lastname}`)
+            }
+        }
+        const emp1={
+            empid:1,
+            empname:"nani",
+            empsalary:12000,
+            emp_details: function(bonus,gift){
+                return `the emplid ${this.empid} and the salary is ${this.empsalary + bonus} and got gift ${gift}`
+            }
+        }
+        const emp2={
+            empid:2,
+            empsalary:20000
+        }
+        person.fun_name()
+        // console.log(emp1.emp_details(5000,"cooler"))
+        var res=emp1.emp_details.bind(emp2,500,"cooker")// accessing another object
+        console.log(res())
+        console.log(setTimeout(res,2000))
+        //  console.log(res())
+    </script>
+</body>
+</html>

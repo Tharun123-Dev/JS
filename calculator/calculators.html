@@ -14,14 +14,15 @@
         justify-content: center;
         align-items: center;
 
-        /* Beautiful soft gradient background */
+    
         background: linear-gradient(135deg, #c9e8ff, #f7d9ff, #ffe7c7);
         background-size: 300% 300%;
         animation: bgMove 8s infinite alternate ease-in-out;
         font-family: Arial, Helvetica, sans-serif;
+        
     }
 
-    /* Background animation */
+    
     @keyframes bgMove {
         0% { background-position: left; }
         100% { background-position: right; }
@@ -33,13 +34,13 @@
         border-radius: 20px;
         height: 320px;
 
-        /* Attractive glowing shadow */
+    
         box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 
         animation: pop 0.6s ease-out;
     }
 
-    /* Smooth popup animation */
+
     @keyframes pop {
         0% { transform: scale(0.7); opacity: 0; }
         100% { transform: scale(1); opacity: 1; }
@@ -113,9 +114,12 @@
         <td><button onclick="calculation()" style="background:#85ff8f;">=</button></td>
         <td><button onclick="displayNUms('/')" style="background:#ffd36b;">/</button></td>
     </tr>
+    <tr>
+        <td colspan="4"><button onclick="backspace()" style="margin-left: 300px;">⌫</button>
+</td>
+    </tr>
    </table>
 
-   <!-- JS NOT TOUCHED -->
    <script>
     function displayNUms(value){
         document.getElementById('screen').value+=value
@@ -130,6 +134,12 @@
         var result=eval(res.value);
         res.value=result
     }
+
+    function backspace() {
+    let screen = document.getElementById("screen");
+    screen.value = screen.value.slice(0, -1);
+}
+
    </script>
     
 </body>
