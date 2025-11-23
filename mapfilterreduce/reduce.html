@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reduce Examples</title>
+</head>
+<body>
+    <script>
+
+        console.log("=== 1. Basic sum ===");
+        let num = [1, 2, 3, 4, 6, 7];
+        let r1 = num.reduce((a, b) => a + b, 0);
+        console.log(r1);  // 23
+
+        console.log("=== 2. Multiply all numbers ===");
+        let nums2 = [2, 3, 4];
+        let r2 = nums2.reduce((a, b) => a * b, 1);
+        console.log(r2);  // 24
+
+        console.log("=== 3. Find maximum number ===");
+        let nums3 = [10, 25, 5, 60, 42];
+        let r3 = nums3.reduce((max, num) => num > max ? num : max, nums3[0]);
+        console.log(r3);  // 60
+
+        console.log("=== 4. Find minimum number ===");
+        let r4 = nums3.reduce((min, num) => num < min ? num : min, nums3[0]);
+        console.log(r4);  // 5
+
+        console.log("=== 5. Count total characters in array of strings ===");
+        let names = ["Ram", "Sita", "Arjun"];
+        let r5 = names.reduce((total, name) => total + name.length, 0);
+        console.log(r5);  // 12
+
+        console.log("=== 6. Convert array to object (frequency count) ===");
+        let marks = [10, 20, 10, 30, 20, 10];
+        let r6 = marks.reduce((acc, val) => {
+            acc[val] = (acc[val] || 0) + 1;
+            return acc;
+        }, {});
+        console.log(r6); 
+        // {10: 3, 20: 2, 30: 1}
+
+        console.log("=== 7. Flatten nested array ===");
+        let nested = [[1, 2], [3, 4], [5, 6]];
+        let r7 = nested.reduce((acc, arr) => acc.concat(arr), []);
+        console.log(r7);  // [1,2,3,4,5,6]
+
+        console.log("=== 8. Sum of object values ===");
+        let cart = [
+            { item: "Pen", price: 20 },
+            { item: "Book", price: 100 },
+            { item: "Bag", price: 500 }
+        ];
+        let r8 = cart.reduce((total, product) => total + product.price, 0);
+        console.log(r8);  // 620
+
+        console.log("=== 9. Group objects by category ===");
+        let products = [
+            { name: "Apple", category: "Fruit" },
+            { name: "Carrot", category: "Vegetable" },
+            { name: "Orange", category: "Fruit" }
+        ];
+        let r9 = products.reduce((acc, item) => {
+            acc[item.category] = acc[item.category] || [];
+            acc[item.category].push(item.name);
+            return acc;
+        }, {});
+        console.log(r9);
+        // { Fruit: ["Apple", "Orange"], Vegetable: ["Carrot"] }
+
+        console.log("=== 10. Reverse an array using reduce ===");
+        let nums10 = [1, 2, 3, 4];
+        let r10 = nums10.reduce((acc, val) => [val, ...acc], []);
+        console.log(r10);  // [4,3,2,1]
+
+    </script>
+</body>
+</html>

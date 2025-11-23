@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout Practice</title>
+</head>
+<body>
+    <h2>SetTimeout Practice — Open Console</h2>
+
+    <script>
+        console.log("----- BEGINNER -----");
+
+        // 1. Basic timeout
+        setTimeout(() => {
+            console.log("Beginner: Hello after 1 second");
+        }, 1000);
+
+
+        console.log("----- INTERMEDIATE -----");
+
+        // 2. Timeout with variables
+        let user = "Tharun";
+        setTimeout(() => {
+            console.log("Intermediate: Welcome", user);
+        }, 1500);
+
+        // 3. Timeout inside a loop
+        for (let i = 1; i <= 3; i++) {
+            setTimeout(() => {
+                console.log("Loop Timeout:", i);
+            }, i * 1000);
+        }
+
+
+        console.log("----- ADVANCED -----");
+
+        // 4. Multiple timeouts running together
+        setTimeout(() => console.log("After 2 seconds"), 2000);
+        setTimeout(() => console.log("After 3 seconds"), 3000);
+        setTimeout(() => console.log("After 4 seconds"), 4000);
+
+        // 5. Using timeout to simulate loading
+        console.log("Loading...");
+        setTimeout(() => {
+            console.log("Loaded ✔️");
+        }, 2000);
+
+
+        console.log("----- PRO LEVEL -----");
+
+        // 6. Timeout returning a fake API response
+        function fakeAPICall(callback) {
+            console.log("Calling API...");
+            setTimeout(() => {
+                callback({ status: "success", data: [1, 2, 3] });
+            }, 2000);
+        }
+
+        fakeAPICall((response) => {
+            console.log("API Response:", response);
+        });
+
+        // 7. Cancel a timeout (clearTimeout)
+        let timeoutId = setTimeout(() => {
+            console.log("This will NOT run");
+        }, 3000);
+
+        clearTimeout(timeoutId); // cancels the timeout
+        console.log("Pro: Timeout cancelled successfully");
+
+
+        // 8. Nested timeouts (animation style)
+        function step1() {
+            console.log("Step 1 done");
+            setTimeout(step2, 1000);
+        }
+        function step2() {
+            console.log("Step 2 done");
+            setTimeout(step3, 1000);
+        }
+        function step3() {
+            console.log("Step 3 done");
+        }
+
+        setTimeout(step1, 1000);
+
+    </script>
+</body>
+</html>

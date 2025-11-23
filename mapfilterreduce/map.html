@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Examples</title>
+</head>
+<body>
+    <script>
+        console.log("=== 1. Add numbers ===");
+        let nums1 = [1, 2, 3, 4];
+        let r1 = nums1.map(n => n + 10);
+        console.log(r1);
+
+        console.log("=== 2. Convert numbers to strings ===");
+        let nums2 = [10, 20, 30];
+        let r2 = nums2.map(n => n.toString());
+        console.log(r2);
+
+        console.log("=== 3. Fahrenheit → Celsius ===");
+        let temp = [32, 68, 95];
+        let r3 = temp.map(f => (f - 32) * 5/9);
+        console.log(r3);
+
+        console.log("=== 4. Square numbers ===");
+        let nums4 = [2, 4, 6];
+        let r4 = nums4.map(n => n * n);
+        console.log(r4);
+
+        console.log("=== 5. Extract field from objects ===");
+        let students = [
+            { name: "Ram", age: 20 },
+            { name: "Sita", age: 22 },
+            { name: "Ravi", age: 19 }
+        ];
+        let r5 = students.map(s => s.name);
+        console.log(r5);
+
+        console.log("=== 6. Add new field to objects ===");
+        let users = [
+            { name: "Arun" },
+            { name: "Vishnu" }
+        ];
+        let r6 = users.map(u => ({ ...u, active: true }));
+        console.log(r6);
+
+        console.log("=== 7. Map with index ===");
+        let arr = ["a", "b", "c"];
+        let r7 = arr.map((value, index) => index + ": " + value);
+        console.log(r7);
+
+        console.log("=== 8. Conditional map ===");
+        let nums8 = [5, 12, 7, 20];
+        let r8 = nums8.map(n => n > 10 ? "big" : "small");
+        console.log(r8);
+
+        console.log("=== 9. Convert numbers → objects ===");
+        let nums9 = [1, 2, 3];
+        let r9 = nums9.map(n => ({ id: n, value: n * 100 }));
+        console.log(r9);
+
+        console.log("=== 10. Remove spaces from strings ===");
+        let names = ["  Ram  ", "  Sita ", " Arjun    "];
+        let r10 = names.map(n => n.trim());
+        console.log(r10);
+
+        console.log("=== 11. Original question example: add 5 ===");
+        let num1 = [1, 2, 3, 4, 5];
+        let res = num1.map(x => x + 5);
+        console.log(res);
+        console.log(num1);
+    </script>
+</body>
+</html>

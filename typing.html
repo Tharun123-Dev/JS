@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Effect</title>
+
+    <style>
+        body {
+            background: #0e0e0e;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            font-size: 22px;
+            padding: 40px;
+        }
+
+        #typingBox {
+            background: linear-gradient(90deg, #ff7eb3, #ff758c, #ff7b5c, #ffb36b);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 600;
+            line-height: 1.6;
+            white-space: wrap;
+            display: block;
+            animation: fade 1s ease-in-out;
+        }
+
+        @keyframes fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 25px;
+            background: orange;
+            margin-left: 5px;
+            animation: blink 0.6s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="typingBox"></div>
+<div class="cursor"></div>
+
+<script>
+    // ✨ Combined paragraph (correct syntax)
+    let paragraph = "In a small town, there was an old library that everyone avoided after sunset. People said books whispered on their own, pages turned without wind, and shadows walked between shelves. " +
+                    "One evening, a curious boy named Arjun decided to find out the truth. He entered the library with a small torch, heart beating fast. At first, everything was silent. No whispers. No shadows. Just the smell of old paper. " +
+                    "As he moved deeper inside, he noticed something strange — a single book glowing faintly on the top shelf. It was titled 'The Book That Reads You'.";
+
+    let words = paragraph.split(" ");  
+    let index = 0;
+    let output = "";
+
+    let typer = setInterval(() => {
+        output += words[index] + " ";  
+        document.getElementById("typingBox").innerHTML = output;
+        index++;
+
+        if (index === words.length) {
+            clearInterval(typer);
+        }
+    }, 300); // typing speed
+</script>
+
+</body>
+</html>

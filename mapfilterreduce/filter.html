@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Examples</title>
+</head>
+<body>
+    <script>
+
+        console.log("=== 1. Basic filter: numbers greater than 35 ===");
+        let num1 = [8, 12, 16, 35, 46, 199];
+        let r1 = num1.filter(x => x > 35);
+        console.log(r1);
+
+        console.log("=== 2. Filter even numbers ===");
+        let nums2 = [1, 2, 3, 4, 5, 6];
+        let r2 = nums2.filter(n => n % 2 === 0);
+        console.log(r2);
+
+        console.log("=== 3. Filter odd numbers ===");
+        let r3 = nums2.filter(n => n % 2 !== 0);
+        console.log(r3);
+
+        console.log("=== 4. Filter numbers divisible by 5 ===");
+        let nums3 = [10, 12, 25, 33, 55];
+        let r4 = nums3.filter(n => n % 5 === 0);
+        console.log(r4);
+
+        console.log("=== 5. Filter strings by length ===");
+        let names = ["Ram", "Sita", "Arjun", "Om"];
+        let r5 = names.filter(n => n.length > 3);
+        console.log(r5);
+
+        console.log("=== 6. Filter strings starting with A ===");
+        let r6 = names.filter(n => n.startsWith("A"));
+        console.log(r6);
+
+        console.log("=== 7. Filter objects by age > 18 ===");
+        let students = [
+            { name: "Ram", age: 16 },
+            { name: "Sita", age: 21 },
+            { name: "Ravi", age: 25 }
+        ];
+        let r7 = students.filter(s => s.age > 18);
+        console.log(r7);
+
+        console.log("=== 8. Filter active users ===");
+        let users = [
+            { name: "Arun", active: true },
+            { name: "Vishnu", active: false },
+            { name: "Kiran", active: true }
+        ];
+        let r8 = users.filter(u => u.active);
+        console.log(r8);
+
+        console.log("=== 9. Filter numbers inside a range (10–50) ===");
+        let nums4 = [5, 10, 20, 35, 60, 80];
+        let r9 = nums4.filter(n => n >= 10 && n <= 50);
+        console.log(r9);
+
+        console.log("=== 10. Remove empty strings ===");
+        let items = ["apple", "", "banana", "", "orange"];
+        let r10 = items.filter(item => item !== "");
+        console.log(r10);
+
+        console.log("=== 11. Remove null, undefined, false, 0 ===");
+        let mixed = [0, 1, "", null, "Hi", undefined, false, 5];
+        let r11 = mixed.filter(Boolean);  // smart filtering
+        console.log(r11);
+
+        console.log("=== 12. Filter by search keyword ===");
+        let products = ["Mobile", "Laptop", "Charger", "Cable", "Camera"];
+        let keyword = "ca";
+        let r12 = products.filter(p => p.toLowerCase().includes(keyword.toLowerCase()));
+        console.log(r12);
+
+    </script>
+</body>
+</html>
