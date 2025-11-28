@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunset Glow Bulb Login</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        font-family: Arial;
+    }
+
+    h1 {
+        margin-top: 20px;
+        font-size: 30px;
+        color: #ffb26b;
+        text-shadow: 0 0 20px #ff914d;
+        animation: titleGlow 2s infinite alternate;
+    }
+
+    @keyframes titleGlow {
+        from { text-shadow: 0 0 15px #ff7f47; }
+        to   { text-shadow: 0 0 35px #ff7f47; }
+    }
+
+    /* ---------------- BULB ---------------- */
+    .bulb {
+        width: 150px;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: 0.4s;
+        filter: drop-shadow(0 0 5px #333);
+    }
+
+    .bulb.on {
+        filter: drop-shadow(0 0 30px #ff944d) 
+                drop-shadow(0 0 60px #ff5e33)
+                drop-shadow(0 0 90px #ff2e00);
+    }
+
+    /* ---------------- SUNSET AURA ---------------- */
+    .sunset-aura {
+        width: 450px;
+        height: 450px;
+
+        background: radial-gradient(circle,
+            rgba(255,180,120,0.9) 0%,
+            rgba(255,120,60,0.65) 40%,
+            rgba(255,60,30,0.4) 60%,
+            rgba(0,0,0,0) 100%
+        );
+
+        position: absolute;
+        top: 170px;
+        border-radius: 50%;
+        filter: blur(35px);
+        display: none;
+        animation: auraPulse 3s infinite ease-in-out;
+    }
+
+    @keyframes auraPulse {
+        0%   { transform: scale(1); opacity: 0.8; }
+        50%  { transform: scale(1.15); opacity: 1; }
+        100% { transform: scale(1); opacity: 0.8; }
+    }
+
+    /* ---------------- LIGHT CONE ---------------- */
+    .sunset-cone {
+        width: 0;
+        height: 0;
+
+        border-left: 250px solid transparent;
+        border-right: 250px solid transparent;
+
+        border-bottom: 450px solid rgba(255,150,80,0.35);
+
+        filter: blur(15px);
+        margin-top: -100px;
+        display: none;
+
+        animation: coneGlow 3s infinite ease-in-out;
+    }
+
+    @keyframes coneGlow {
+        0%   { opacity: 0.7; transform: scale(1); }
+        50%  { opacity: 1; transform: scale(1.05); }
+        100% { opacity: 0.7; transform: scale(1); }
+    }
+
+    /* ---------------- PARTICLES ---------------- */
+    .particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #ffb26b;
+        box-shadow: 0 0 10px #ff914d;
+        display: none;
+        animation: particleFall 2.5s linear infinite;
+    }
+
+    @keyframes particleFall {
+        from { opacity: 1; transform: translateY(0); }
+        to   { opacity: 0; transform: translateY(300px); }
+    }
+
+    /* ---------------- FORM ---------------- */
+    .login-box {
+        width: 300px;
+        padding: 22px;
+        border-radius: 12px;
+        text-align: center;
+
+        background: rgba(255, 190, 150, 0.15);
+        border: 1px solid rgba(255,165,130,0.4);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 25px rgba(255,120,70,0.8);
+
+        position: relative;
+        margin-top: -320px;
+        display: none;
+
+        animation: formAppear 1s ease-out;
+    }
+
+    @keyframes formAppear {
+        from { opacity: 0; transform: translateY(40px) scale(0.85); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .login-box input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 6px;
+        border: none;
+        background: rgba(255,255,255,0.75);
+    }
+
+    .login-box button {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(45deg, #ff914d, #ff5a2a);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 10px;
+        box-shadow: 0 0 20px #ff6f3c;
+    }
+
+</style>
+</head>
+
+<body>
+
+<h1>Sunset Bulb Login</h1>
+
+<!-- BULB -->
+<img id="bulb" class="bulb" src="https://img.freepik.com/premium-photo/decorative-antique-edison-style-filament-light-bulbs_35766-2916.jpg">
+
+<!-- SUNSET AURA -->
+<div id="aura" class="sunset-aura"></div>
+
+<!-- SUNSET LIGHT CONE -->
+<div id="cone" class="sunset-cone"></div>
+
+<!-- PARTICLES -->
+<div id="p1" class="particle"></div>
+<div id="p2" class="particle"></div>
+<div id="p3" class="particle"></div>
+
+<!-- FORM -->
+<div id="formBox" class="login-box">
+    <h3 style="color:#ffe7d4;text-shadow:0 0 8px #ff9a5c;">Login</h3>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button>Sign In</button>
+</div>
+
+<script>
+function randomParticle(p) {
+    p.style.left = (window.innerWidth/2 - 40 + Math.random()*80) + "px";
+    p.style.top = "180px";
+}
+
+function lightOn() {
+    let bulb = document.getElementById("bulb");
+    bulb.classList.add("on");
+    bulb.src = "https://static.vecteezy.com/system/resources/thumbnails/046/024/690/small/the-old-light-bulb-glows-in-total-darkness-photo.jpg";
+
+    document.getElementById("aura").style.display = "block";
+    document.getElementById("cone").style.display = "block";
+    document.getElementById("formBox").style.display = "block";
+
+    let p1 = document.getElementById("p1");
+    let p2 = document.getElementById("p2");
+    let p3 = document.getElementById("p3");
+
+    p1.style.display = p2.style.display = p3.style.display = "block";
+
+    setInterval(() => randomParticle(p1), 800);
+    setInterval(() => randomParticle(p2), 1000);
+    setInterval(() => randomParticle(p3), 1200);
+}
+
+function lightOff() {
+    let bulb = document.getElementById("bulb");
+    bulb.classList.add("on");
+    bulb.src = "https://img.freepik.com/premium-photo/decorative-antique-edison-style-filament-light-bulbs_35766-2916.jpg";
+
+    document.getElementById("aura").style.display = "none";
+    document.getElementById("cone").style.display = "none";
+    document.getElementById("formBox").style.display = "none";
+
+    document.getElementById("p1").style.display = "none";
+    document.getElementById("p2").style.display = "none";
+    document.getElementById("p3").style.display = "none";
+}
+
+document.getElementById("bulb").onclick = lightOn;
+</script>
+
+</body>
+</html>
