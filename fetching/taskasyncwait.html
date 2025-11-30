@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function selectfood(){
+            return new Promise((nani)=>{
+                setTimeout(()=>{
+                    console.log("food selected")
+                    nani()
+                },1000)
+            })
+        }
+        function preparefood(){
+            return new Promise((nani)=>{
+                setTimeout(()=>{
+                    console.log("food preapared")
+                    nani()
+                },1000)
+            })
+        }
+        function packfood(){
+            return new Promise((nani)=>{
+                setTimeout(()=>{
+                    console.log("food packed")
+                    nani()
+                },1000)
+            })
+        }
+        function deliverfood(){
+            return new Promise((nani)=>{
+                setTimeout(()=>{
+                    console.log("food delivered")
+                    nani()
+                },1000)
+            })
+        }
+
+        async function orderfood(){
+            try{
+                await selectfood();
+                await preparefood();
+                await packfood();
+                await deliverfood()
+                console.log("order completed")
+            }
+            catch (error){
+                console.log("something went wrong")
+            }
+        }
+        orderfood()
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+function selectFood() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(" Food Selected");
+            resolve();
+        }, 1000);
+    });
+}
+
+function prepareFood() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(" Food Prepared");
+            resolve();
+        }, 2000);
+    });
+}
+
+function packFood() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(" Food Packed");
+            resolve();
+        }, 2000);
+    });
+}
+
+function deliverFood() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log(" Food Delivered");
+            resolve();
+        }, 2000);
+    });
+}
+
+
+selectFood()
+    .then(prepareFood)
+    .then(packFood)
+    .then(deliverFood)
+    .then(() => {
+        console.log(" Order Completed");
+
+    });
+
+    </script>
+</body>
+</html>

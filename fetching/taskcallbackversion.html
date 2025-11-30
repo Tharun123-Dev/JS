@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function selectfood(callback) {
+          
+          setTimeout (()=>{
+            console.log("food selection done")
+            callback()
+          },2000)
+
+        }
+        function preparefood(callback) {
+          
+          setTimeout (()=>{
+            console.log("food prepare done")
+            callback()
+          },2000)
+
+        }
+        function packfood(callback) {
+          
+          setTimeout (()=>{
+            console.log("food packing done")
+            callback()
+          },2000)
+
+        }
+        function deliver(callback) {
+          
+          setTimeout (()=>{
+            console.log("food delivery done")
+            callback()
+          },2000)
+
+        }
+
+        selectfood( ()=>{
+            preparefood(()=>{
+                packfood(()=>{
+                    deliver(()=>{
+                        console.log("order completed")
+                    })
+                })
+            })
+        } )
+        
+  
+    </script>
+</body>
+</html>
