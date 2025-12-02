@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="n">open</button>
+    <button id="a">same</button>
+    <button id="t">close</button>
+    <button id="h">historyf</button>
+    <button id="r">historyba</button>
+    <button id="u"></button>
+    <script>
+        let d;
+        document.getElementById("n").onclick=()=>{
+           d= window.open("https://leetcode.com","_blank","width=500","height=100")
+        }
+        document.getElementById("a").onclick=()=>{
+         window.location.href="https://leetcode.com"
+        }
+        document.getElementById("t").onclick=()=>{
+            if(d){
+                window.close();
+                d=null
+            }
+        }
+    
+    </script>
+</body>
+</html>

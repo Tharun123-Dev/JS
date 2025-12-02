@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="showDetails()">Show Browser Info</button>
+
+<script>
+function showDetails() {
+    console.log("URL:", location.href);
+    console.log("Browser:", navigator.userAgent);
+    console.log("Width:", screen.width);
+    alert("Scroll Position: " + window.scrollY);
+}
+</script>
+
+</body>
+</html>

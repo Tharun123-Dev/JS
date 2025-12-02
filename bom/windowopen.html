@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Open LeetCode</title>
+</head>
+<body>
+    <button id="openNewTabBtn">Open LeetCode in New Tab</button>
+    <button id="openSameTabBtn">Open LeetCode in Same Tab</button>
+    <button id="closeTabBtn">Close New Tab</button>
+    <button id="historyBackBtn">Go Back</button>
+    <button id="historyForwardBtn">Go Forward</button>
+
+    <script>
+        let newTab;
+
+        document.getElementById('openNewTabBtn').onclick = () => {
+            newTab = window.open('https://leetcode.com', '_blank', 'width=500,height=500');
+        };
+
+        document.getElementById('openSameTabBtn').onclick = () => {
+            window.location.href = 'https://leetcode.com';
+        };
+
+        document.getElementById('closeTabBtn').onclick = () => {
+            if (newTab) {
+                newTab.close();
+                newTab = null; // Reset the reference
+            }
+        };
+
+        document.getElementById('historyBackBtn').onclick = () => {
+            window.history.back();
+        };
+
+        document.getElementById('historyForwardBtn').onclick = () => {
+            window.history.forward();
+        };
+    </script>
+</body>
+</html>
