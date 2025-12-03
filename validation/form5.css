@@ -1,0 +1,165 @@
+/* ====== Global Styles ====== */
+/* ====== Global Styles ====== */
+body {
+    font-family: "Poppins", sans-serif;
+    
+    background: linear-gradient(135deg, #a18cd1, #fbc2eb); /* new soft purple-pink gradient */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ====== Compact Form Box ====== */
+form {
+    background: #f9f9f9;
+    width: 320px;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 22px rgba(20, 30, 60, 0.08);
+    animation: popUp 0.6s ease;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ====== Labels ====== */
+label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* ====== Inputs ====== */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 6px;
+    border: 1.2px solid #e3e8f0;
+    border-radius: 8px;
+    outline: none;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.12s ease;
+    font-size: 13px;
+
+    /* light gradient background + subtle shadows */
+    background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 6px 16px rgba(34, 47, 100, 0.06);
+}
+
+/* Focus Effects */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #7c4dff;
+    box-shadow: 0 10px 26px rgba(124,77,255,0.12), 0 0 0 4px rgba(124,77,255,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+    transform: translateY(-1px);
+}
+
+/* Checkbox area spacing reduced */
+div {
+    margin-top: 4px;
+}
+
+/* Error Text */
+.error-msg {
+    font-size: 11.5px;
+    color: red;
+    margin-bottom: 4px;
+}
+
+/* ====== Buttons ====== */
+input[type="submit"],
+input[type="reset"] {
+    width: 48%;
+    padding: 8px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 7px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 8px 18px rgba(20, 30, 60, 0.08);
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background: linear-gradient(180deg, #7c4dff, #6a3be6);
+    color: white;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(180deg, #6530d1, #5126b5);
+}
+
+/* Reset Button */
+input[type="reset"] {
+    background: linear-gradient(180deg, #ff8b8b, #ff6e6e);
+    color: white;
+}
+
+input[type="reset"]:hover {
+    background: linear-gradient(180deg, #ff6e6e, #e53935);
+}
+
+/* Animation */
+@keyframes popUp {
+    from {
+        transform: scale(0.88);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* Blink animation */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Apply to any element you want to blink (labels, spans, etc.) */
+.blink {
+    animation: blink 1s steps(2, start) infinite;
+}
+
+/* If you want placeholders to blink too (supports major browsers) */
+/* Standard */
+.blink::placeholder,
+input.blink::placeholder,
+textarea.blink::placeholder {
+    animation: blink 1s steps(2, start) infinite;
+}
+
+/* WebKit (Chrome, Safari, newer Edge) */
+.blink::-webkit-input-placeholder,
+input.blink::-webkit-input-placeholder,
+textarea.blink::-webkit-input-placeholder {
+    animation: blink 1s steps(2, start) infinite;
+}
+
+/* Firefox (older) */
+.blink::-moz-placeholder,
+input.blink::-moz-placeholder,
+textarea.blink::-moz-placeholder {
+    animation: blink 1s steps(2, start) infinite;
+}
+
+/* IE 10+ / Edge (legacy) */
+.blink:-ms-input-placeholder,
+input.blink:-ms-input-placeholder,
+textarea.blink:-ms-input-placeholder {
+    animation: blink 1s steps(2, start) infinite;
+}
+
+/* Edge (legacy) alternative */
+.blink::-ms-input-placeholder,
+input.blink::-ms-input-placeholder,
+textarea.blink::-ms-input-placeholder {
+    animation: blink 1s steps(2, start) infinite;
+}

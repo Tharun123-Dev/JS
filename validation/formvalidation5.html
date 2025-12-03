@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./form5.css">
+</head>
+<body>
+    <form onsubmit="return formvalidation()">
+        <label for="name">Name:</label>
+        <input type="text" id="name"><br>
+        <span id="name-error" class="error-msg"></span><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password"><br>
+        <span id="password-error" class="error-msg"></span><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email"><br>
+        <span id="email-error" class="error-msg"></span><br>
+
+        <label for="college">College:</label>
+        <textarea name="college" id="college"></textarea><br>
+        <span id="college-error" class="error-msg"></span><br>
+
+        <label for="course">Course:</label>
+        <select id="course">
+            <option value="">====select option====</option>
+            <option value="java">Java</option>
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="data-analyst">Data Analyst</option>
+            <option value="sql">SQL</option>
+            <option value="react">React</option>
+        </select><br>
+        <span id="course-error" class="error-msg"></span><br>
+
+        <div>
+            <input type="checkbox" id="agree">
+            <label for="agree">I agree</label>
+        </div>
+        <span id="checkbox-error" class="error-msg"></span><br>
+
+        <input type="submit" value="submit">
+        <input type="reset" value="reset">
+    </form>
+
+    <script>
+        function formvalidation(){
+       const name= document.getElementById("name").value
+        const password= document.getElementById("password").value
+       const email= document.getElementById("email").value
+       const course= document.getElementById("course").value
+       const checkbox= document.getElementById("agree").checked
+
+       //spaning elements
+       const nameError=document.getElementById("name-error")
+       const passwordError=document.getElementById("password-error")
+       const emailError=document.getElementById("email-error")
+       const courseError=document.getElementById("course-error")
+       const checkError=document.getElementById("checkbox-error")
+
+       //take empty first
+       nameError.textContent="";
+       passwordError.textContent="";
+       emailError.textContent="";
+       courseError.textContent="";
+       checkError.textContent="";
+
+
+       let isValid=true;
+       if(name===""){
+        nameError.textContent="username not entered"
+        isValid=false;
+       }
+
+       if(password===""){
+        passwordError.textContent="password not entered"
+        isValid=false;
+       } else if(password.length<6){
+        passwordError.textContent="password length should be more than 6"
+        isValid=false;
+       }
+
+       if(email===""){
+        emailError.textContent="email not entered"
+        isValid=false;
+       }
+       if (email !== "" && !email.endsWith("@gmail.com")) {
+        emailError.textContent = "email should end with @gmail.com";
+        isValid = false;
+       }
+
+       if(course===""){
+        courseError.textContent="course not selected"
+        isValid=false;
+       }
+
+       if(!checkbox){
+        checkError.textContent="please agree to continue"
+        isValid=false;
+       }
+       
+       if(isValid){
+        alert("successfully submitted the data")
+       }
+       return isValid
+        }
+    </script>
+</body>
+</html>
