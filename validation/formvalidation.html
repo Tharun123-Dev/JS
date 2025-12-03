@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for validation</title>
+</head>
+<body>
+    <form name="myform" onsubmit="return formvalidation()">
+        Name:<input type="text" name="username"><br><br>
+        Password:<input type="password" name="password"><br><br>
+        <input type="submit" value="login" name="btn">
+
+    </form>
+    <script>
+        function formvalidation(){
+           var username = document.myform.username.value;
+          var password = document.myform.password.value;
+
+          if (username == null || username.trim() == ""){
+            alert("username is required");
+            return false;
+          }
+          else if(password == null || password.trim() == ""){
+            alert("password is required");
+            return false;
+          }
+          else{
+            alert("logged in successfully");
+            return true;
+          }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Open LeetCode & Navigator Info</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 16px; }
+        button { margin: 6px 6px 6px 0; }
+        pre { background:#f4f4f4; padding:10px; border:1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <button id="openNewTabBtn">Open LeetCode in New Tab</button>
+    <button id="openSameTabBtn">Open LeetCode in Same Tab</button>
+    <button id="closeTabBtn">Close New Tab</button>
+    <button id="historyBackBtn">Go Back</button>
+    <button id="historyForwardBtn">Go Forward</button>
+
+    <hr>
+
+    <button id="showNavigatorBtn">Show Navigator Info</button>
+    <button id="copyUserAgentBtn">Copy userAgent</button>
+    <button id="openDevtoolsDocsBtn">Open MDN Navigator</button>
+
+    <pre id="navigatorInfo" aria-live="polite">Navigator info will appear here.</pre>
+
+    <script>
+        let newTab;
+
+        document.getElementById('openNewTabBtn').onclick = () => {
+            newTab = window.open('https://leetcode.com', '_blank', 'width=1000,height=800');
+        };
+
+        document.getElementById('openSameTabBtn').onclick = () => {
+            window.location.href = 'https://leetcode.com';
+        };
+
+        document.getElementById('closeTabBtn').onclick = () => {
+            if (newTab && !newTab.closed) {
+                newTab.close();
+                newTab = null;
+            }
+        };
+
+        document.getElementById('historyBackBtn').onclick = () => {
+            window.history.back();
+        };
+
+        document.getElementById('historyForwardBtn').onclick = () => {
+            window.history.forward();
+        };
+
+        // Navigator info features
+        const infoEl = document.getElementById('navigatorInfo');
+
+        function getNavigatorInfo() {
+            const nav = navigator;
+            return {
+                userAgent: nav.userAgent || 'n/a',
+                platform: nav.platform || 'n/a',
+                language: nav.language || nav.languages?.[0] || 'n/a',
+                languages: nav.languages || [],
+                online: navigator.onLine,
+                cookieEnabled: navigator.cookieEnabled,
+                hardwareConcurrency: nav.hardwareConcurrency || 'n/a',
+                deviceMemory: nav.deviceMemory || 'n/a',
+                vendor: nav.vendor || 'n/a'
+            };
+        }
+
+        document.getElementById('showNavigatorBtn').onclick = () => {
+            const info = getNavigatorInfo();
+            infoEl.textContent = JSON.stringify(info, null, 2);
+        };
+
+        document.getElementById('copyUserAgentBtn').onclick = async () => {
+            try {
+                await navigator.clipboard.writeText(navigator.userAgent);
+                alert('userAgent copied to clipboard');
+            } catch (e) {
+                alert('Copy failed: ' + (e && e.message));
+            }
+        };
+
+        document.getElementById('openDevtoolsDocsBtn').onclick = () => {
+            window.open('https://developer.mozilla.org/en-US/docs/Web/API/Navigator', '_blank');
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for validation</title>
+    <link rel="stylesheet" href="./signup.css">
+</head>
+<body>
+    <form name="myform" onsubmit="return formvalidation()">
+        Name:<input type="text" name="username" placeholder="Enter full name"><br><br>
+        email:<input type="email" name="email"><br><br>
+        Password:<input type="password" name="password"><br><br>
+        confirm password:<input type="password" name="password2"><br><br>
+        
+        phno:<input type="tel" name="tel" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required><br><br>
+
+        <input type="submit" value="signup" name="btn">
+
+    </form>
+    <script>
+        function formvalidation(){
+          var username = document.myform.username.value;
+          var email = document.myform.email.value;
+          var password = document.myform.password.value;
+          var password2=document.myform.password2.value;
+          var phno=document.myform.tel.value;
+
+        if (!username) {
+                alert("username is mandatory");
+                return false;
+            }
+        if (!password) {
+                alert("password is mandatory");
+                return false;
+            }
+        if (!password2) {
+                alert("confirm password is mandatory");
+                return false;
+            }
+        if (password.length <= 6 || password2.length <= 6) {
+                alert("password should be length 6 and more");
+                return false;
+            }
+        if (password !== password2) {
+                alert("passwords do not match");
+                return false;
+            }
+        if (!email) {
+                alert("email is mandatory");
+                return false;
+        }
+        if(!email.endsWith("@gmail.com")){
+            alert("email should be ends with gmail.com");
+            return false;
+        }
+        if (!phno) {
+                alert("phone number is mandatory");
+                return false;
+        }
+        alert("successfully signup")
+        return true;
+
+        }
+    </script>
+</body>
+</html>

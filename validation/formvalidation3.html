@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+</head>
+<body>
+    <form name="myform" onsubmit="return formvalidation()">
+        Name:<input type="text" name="username">
+        Password:<input type="password" name="password">
+        Re-enter Password:<input type="password" name="password2">
+        <input type="submit" value="submit" name="btn">    
+    </form>
+    <script>
+        function formvalidation(){
+            var username = document.myform.username.value.trim();
+            var password = document.myform.password.value;
+            var password2 = document.myform.password2.value;
+        
+            if (!username) {
+                alert("username is mandatory");
+                return false;
+            }
+            if (password.length < 6 || password2.length < 6) {
+                alert("password must be at least 6 characters");
+                return false;
+            }
+            if (password !== password2) {
+                alert("passwords do not match");
+                return false;
+            }
+            alert("logged in successfully");
+            return true;
+        }
+    </script>
+</body>
+</html>
