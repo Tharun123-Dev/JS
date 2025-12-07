@@ -1,0 +1,166 @@
+/* ------------------ GLOBAL PAGE ------------------ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #8EC5FC, #E0C3FC, #FBC2EB);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+
+/* ------------------ FORM CARD ------------------ */
+form {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    width: 420px;
+    border-radius: 20px;
+    box-shadow: 0px 15px 35px rgba(0,0,0,0.25);
+    animation: fadeDrop 0.8s ease;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+form h2 {
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+/* INPUT STYLES */
+form input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255,255,255,0.7);
+    outline: none;
+    transition: 0.3s;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+}
+
+form input:focus {
+    background: #ffffff;
+    box-shadow: 0px 0px 12px #a18cd1;
+    transform: scale(1.02);
+}
+
+/* SUBMIT BUTTON */
+form button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #2575fc, #6a11cb, #ff6ec4);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 15px 30px rgba(81, 50, 255, 0.45);
+}
+
+/* ------------------ ERROR BOX ------------------ */
+#error-box {
+    display: none;
+    background: rgba(255, 70, 70, 0.2);
+    color: #d8000c;
+    font-weight: bold;
+    padding: 10px;
+    border-left: 5px solid red;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+/* ------------------ TABLE CARD ------------------ */
+.table-card {
+    margin-top: 25px;
+    width: 60%;                  /* ⭐ TABLE WIDTH 60% */
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 15px 35px rgba(0,0,0,0.25);
+    animation: fadeUp 0.9s ease;
+    border: 1px solid rgba(255,255,255,0.4);
+    display: flex;
+    justify-content: center;
+}
+
+/* TABLE ITSELF */
+table {
+    width: 70%;
+    border-collapse: collapse;
+}
+
+/* TABLE HEAD */
+thead {
+    background: linear-gradient(45deg, #6a11cb, #2575fc, #6dd5fa);
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    font-size: 15px;
+}
+
+tbody tr {
+    background: rgba(255,255,255,0.8);
+    transition: 0.3s;
+    border-bottom: 1px solid #c7c7ff;
+}
+
+tbody tr:hover {
+    background: rgba(220, 235, 255, 0.9);
+    transform: scale(1.02);
+}
+
+/* ACTION BUTTONS */
+button[onclick*="edit"] {
+    background: #4ba3ff;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+button[onclick*="edit"]:hover {
+    background: #1f7fe6;
+}
+
+button[onclick*="delete"] {
+    background: #ff6565;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+button[onclick*="delete"]:hover {
+    background: #e93434;
+}
+
+/* ------------------ ANIMATIONS ------------------ */
+@keyframes fadeDrop {
+    from { transform: translateY(-40px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}

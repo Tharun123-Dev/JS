@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="crud.css">
+    <script src="crud.js"></script>
+    <div id="error-box"></div>
+
+</head>
+<body>
+    <form action="">
+        <input type="text" id="name" placeholder="enter your name">
+        <input type="text" id="age" placeholder="enter your age">
+        <input type="email" id="email" placeholder="enter your email">
+        <input type="text" id="city" placeholder="enter your city">
+        <button type="button" onclick="createdata()">Create</button>
+    </form>
+<table  cellspacing="0" cellpadding="10" border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        
+    </tbody>
+</table>
+
+</body>
+</html>
