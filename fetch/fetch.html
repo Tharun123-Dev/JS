@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fetch api</title>
+    </head>
+    <body>
+        <script>
+
+            // //get method
+            // fetch('https://jsonplaceholder.typicode.com//users/')
+            // .then(response => response.json())
+            // .then(data => console.log(data))    
+            // .catch(error => console.error('Error:', error));
+           
+
+        //     //post method
+        //     fetch('https://jsonplaceholder.typicode.com/users/' ,{
+        //         method: "POST",
+        //         headers:{
+        //             "Content-Type": "application/json; charset=UTF-8"
+        //         },
+        //         body:JSON.stringify({
+        //             name: "nani",
+        //             username: "nani123",
+        //             email: "nani@example.com"
+        //         })
+        //     })
+        //     .then(response => response.json())
+        //     .then(data => console.log(data))        
+        //     .catch(error => console.error('Error:', error));
+
+            //put method
+        
+            //put method
+            fetch('https://jsonplaceholder.typicode.com/users/1/' ,{
+                method: "PUT",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    name: "Tharun",
+                    email:"tharun@gmail.com",
+                
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))        
+            .catch(error => console.error('Error:', error));
+
+            //             // //patch method
+            // fetch('https://jsonplaceholder.typicode.com/users/1/' ,{
+            //     method: "PATCH",
+            //     headers:{
+            //         "Content-Type": "application/json"
+            //     },
+            //     body:JSON.stringify({
+            //         name: "Tharun",
+                   
+                
+            //     })
+            // })
+            // .then(res => res.json())
+            // .then(data => console.log(data))        
+            // .catch(error => console.error('Error:', error));
+
+
+            // //delete method
+            //  fetch('https://jsonplaceholder.typicode.com/users/1/',{
+            //     method:"DELETE"
+
+            //  })
+            //  .then(res=>res.json())
+            //  .then(()=>console.log("deleted"))
+            //  .catch(err=>console.log("error",err))
+
+
+
+        </script>
+    </body>
+    </html>
+</body>
+</html>
