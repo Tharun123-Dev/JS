@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch with api</title>
+</head>
+<body>
+    <script>
+        // fetch('http://localhost:3000/students')
+        //     .then(response => response.json())
+        //     .then(data => console.log(data))
+        //     .catch(error => console.error('Error fetching data:', error));
+
+fetch('http://localhost:3000/students', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        id: 4,
+        name: 'Ravi',
+        age: 24
+    })
+})
+.then(response => response.json())
+.then(data => console.log("Created:", data))        
+.catch(error => console.error('Error:', error));
+
+// fetch('http://localhost:3000/students/2', {
+//     method: 'PUT',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//         id: 2,              // REQUIRED
+//         name: ' nani',
+//         age: 23
+//     })
+// })
+// .then(res => res.json())
+// .then(data => console.log("Updated:", data))
+// .catch(err => console.error(err));
+        
+// fetch('http://localhost:3000/students/1', {
+//     method: 'PATCH',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+    
+//         name: 'Updated Name',
+//         age: 22
+//     })
+// })
+// .then(response => response.json())
+// .then(data => {
+//     console.log("Updated successfully:", data);
+// })
+// .catch(error => {
+//     console.error("Error:", error);
+// });
+
+
+
+
+
+//      delete fetch('http://localhost:3000/students/2', {
+//     method: 'DELETE',
+// }).then(response => {
+//     if (response.ok) {          
+//         console.log("Deleted successfully");
+//     } else {
+//         console.error("Error deleting");
+//     }   
+// });
+    </script>
+</body>
+</html>
