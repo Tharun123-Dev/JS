@@ -39,4 +39,4 @@ boilWater()
     .then(addingMasala)
     .then(addExtraIngre)
     .then(serve)
-    .catch(() => console.log("Something went wrong"))
+    .catch(() => console.log("Something went wrong"));
